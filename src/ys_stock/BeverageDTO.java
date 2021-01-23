@@ -25,4 +25,4 @@ public class BeverageDTO {
 		this.latteJan = latteJan;
 	}
 	
-}
+}   

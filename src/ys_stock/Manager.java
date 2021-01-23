@@ -21,7 +21,7 @@ public class Manager {
 		
 		switch(no) {
 		case 1 : 
-			amount(0);	// 수량 파악 메소드
+			amount(0,0);	// 수량 파악 메소드
 			break;
 		case 2 :
 			order();	// 주문 메소드
@@ -51,7 +51,7 @@ public class Manager {
 			americano();
 			break;
 		case 2 :
-			
+			latte();
 			break;
 		
 		default : 
@@ -63,17 +63,26 @@ public class Manager {
 		
 	}
 
+	public void latte() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("몇 잔을 주문하시겠어요?");
+		int latteJan = sc.nextInt();
+		amount(0, latteJan);		
+	}
+
+
+
 	public  void americano() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("몇 잔을 주문하시겠어요?");
 		int ameJan = sc.nextInt();
-		amount(ameJan);
+		amount(ameJan, 0);
 		
 	}
 
 	
 
-	public  void amount(int ameJan) {
+	public  void amount(int ameJan, int latteJan) {
 		
 //		System.out.println(ameJan);
 		
@@ -82,6 +91,8 @@ public class Manager {
 		
 		americano.add("아메리카노");
 		americano.add(100);
+		latte.add("라떼");
+		latte.add(80);
 		
 		if(ameJan  == 0) {
 			System.out.println("현재 아메리카노의 수량은 " + americano.get(1));
@@ -93,9 +104,16 @@ public class Manager {
 			System.out.println("현재 아메리카노의 수량은 : " + americano.get(1));
 		}
 		
+		if(latteJan  == 0) {
+			System.out.println("현재 라떼의 수량은 " + latte.get(1));
+
+		}else {
+			int latteJan1 = (int) latte.get(1);
+			int remain = latteJan1 - latteJan;
+			latte.set(1, remain);
+			System.out.println("현재 아메리카노의 수량은 : " + latte.get(1));
+		}
 		
-		latte.add("라떼");
-		latte.add(80);
 		
 		/*
 		 * 구현 해야하는 것
@@ -110,9 +128,15 @@ public class Manager {
 //		System.out.println("현재 아메리카노의 수량은 " + americano.get(1));
 //		System.out.println("현재 라떼의 수량은 " + latte.get(1));
 		
-		
 	}
 	
-	
+	public int  Cal(int ameJan, int ameJan1) {
+		
+		
+		
+		
+		
+		return ameJan;
+	}
 
 }
