@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Manager {
 
-	
 	Scanner sc = new Scanner(System.in);
 	LoginDTO loginDTO = new LoginDTO();		// 로그인DTO생성
 	ArrayList<LoginDTO> members = new ArrayList<>();	//회원 로그인 정보를 받음 (1차원 배열)
