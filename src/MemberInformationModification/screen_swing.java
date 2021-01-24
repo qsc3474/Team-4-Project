@@ -27,7 +27,7 @@ public class screen_swing extends JFrame{
 		
 		panel.setLayout(null);
 		
-		JLabel labe4 = new JLabel("비밀번호 수정 ");
+		JLabel labe = new JLabel("비밀번호 수정 ");
 		JLabel label = new JLabel("기존비밀번호       : ");
 		JLabel label2 = new JLabel("새로운 비밀번호  : ");
 		JLabel label3 = new JLabel("새로운 비밀번호  : ");
@@ -37,7 +37,7 @@ public class screen_swing extends JFrame{
 		JPasswordField pwdText2 = new JPasswordField(20);
 		JPasswordField pwdText3 = new JPasswordField(20);
 		
-		panel.add(labe4);
+		panel.add(labe);
 		panel.add(label);
 		panel.add(pwdText);
 		panel.add(label2);
@@ -47,11 +47,11 @@ public class screen_swing extends JFrame{
 		panel.add(button);
 		
 		label.setBounds(50, 60, 110, 25);
-		labe4.setBounds(145, 15, 110, 25);
-		pwdText.setBounds(180, 60, 165, 25);
+		labe.setBounds(145, 15, 110, 25);
 		label2.setBounds(50, 100, 110, 25);
-		pwdText2.setBounds(180, 100, 165, 25);
 		label3.setBounds(50, 140, 120, 25);
+		pwdText.setBounds(180, 60, 165, 25);
+		pwdText2.setBounds(180, 100, 165, 25);
 		pwdText3.setBounds(180, 140, 165, 25);
 		button.setBounds(150, 190, 80, 25);
 		
