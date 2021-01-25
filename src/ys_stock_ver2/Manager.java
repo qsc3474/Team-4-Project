@@ -23,7 +23,7 @@ public class Manager {
 		}
 	
 	public void Run() {
-		
+		  
 		
 		while(true) {
 		System.out.println("1. 수량 파악");
