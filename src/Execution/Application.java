@@ -26,6 +26,7 @@ public class Application {
 		Scanner sc =new Scanner(System.in);
 		
 		
+		while(true) {
 		System.out.println("*********** 커피 한 잔의 여유 ***********");
 		System.out.println("고객님 환영합니다.");
 		System.out.println("1번 회원가입 및 로그인");
@@ -35,7 +36,6 @@ public class Application {
 		System.out.println("5번 로그아웃");
 	
 		  
-		while(true) {
 			System.out.print("번호 선택 : ");
 			int num = sc.nextInt();
 			sc.nextLine();	
@@ -43,11 +43,14 @@ public class Application {
 			switch(num){
 			
 			case 1 : 
-				manager.Run(); //Menyu.jumun();
+				manager.Run();
 				break;
 				
 			case 2 : 
 				orderMenu.main(null);
+				orderMenu.temperature();
+				orderMenu.size();
+				orderMenu.shot();
 				break;
 				
 			case 3 : 
@@ -55,7 +58,7 @@ public class Application {
 				break;
 				
 			case 4 : 
-				// 회원탈퇴
+				b.main(null);
 				break;
 				
 			case 5 : 
