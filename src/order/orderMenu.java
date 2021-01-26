@@ -1,4 +1,4 @@
-package team4.cafe.taewoo;
+package order;
 
 import java.util.Scanner;
 
