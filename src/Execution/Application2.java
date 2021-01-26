@@ -9,7 +9,7 @@ import dd.orderMenu;
 import withdraw.B;
 import ys_stock.Manager;
 
-public class Application2 {
+public class Application2 { 
 
 	public static void main(String[] args) {
 		 Menyujumun Menyu = new Menyujumun();

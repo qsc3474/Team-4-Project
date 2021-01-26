@@ -34,7 +34,7 @@ public class Application {
 		System.out.println("4번 회원탈퇴");
 		System.out.println("5번 로그아웃");
 	
-		
+		  
 		while(true) {
 			System.out.print("번호 선택 : ");
 			int num = sc.nextInt();
