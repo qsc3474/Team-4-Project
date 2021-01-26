@@ -9,13 +9,21 @@ public class Manager {
 	
 		BeverageDTO beverageDTO = new BeverageDTO();
 		Scanner sc = new Scanner(System.in);
-		ArrayList<BeverageDTO> americano = new ArrayList<>();	// 아메리카노 1차원 배열
-		ArrayList<BeverageDTO> latte = new ArrayList<>();	// 라떼 1차원 배열
+//		ArrayList<BeverageDTO> americano = new ArrayList2<>();	// 아메리카노 1차원 배열
+//		ArrayList<BeverageDTO> latte = new ArrayList<>();	// 라떼 1차원 배열
 
-		
+		ArrayList americano = new ArrayList();
+		ArrayList latte = new ArrayList();
+	
+		{
+		americano.add("아메리카노");
+		americano.add(100);
+		latte.add("라떼");
+		latte.add(80);
+		}
 	
 	public void Run() {
-		
+		  
 		
 		while(true) {
 		System.out.println("1. 수량 파악");
@@ -98,14 +106,7 @@ public class Manager {
 		
 //		System.out.println(ameJan);
 		
-		ArrayList americano = new ArrayList();
-		ArrayList latte = new ArrayList();
-	
-		
-		americano.add("아메리카노");
-		americano.add(100);
-		latte.add("라떼");
-		latte.add(80);
+
 		
 		int ameJan = beverageDTO.getOrderAmeJan();
 		int latteJan = beverageDTO.getOrderLatteJan();

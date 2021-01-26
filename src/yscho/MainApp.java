@@ -1,12 +1,18 @@
 package yscho;
 
+import java.io.IOException;
 
 public class MainApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		// CRUD 중 CR 부분 create and read;
 		Manager manager	= new Manager();
-		manager.Run();
+		try {
+			manager.Run();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		
 	}
