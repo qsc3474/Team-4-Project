@@ -156,7 +156,7 @@ public class Modifypassword extends JPanel{
 					}
 
 			}
-		});
+		}); 
 		
 		
 		try {

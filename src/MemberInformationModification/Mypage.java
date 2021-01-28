@@ -45,7 +45,7 @@ public class Mypage extends JPanel{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable() { 
 			public void run() {
 				try {
 					Mypage window = new Mypage();
