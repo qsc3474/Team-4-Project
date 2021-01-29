@@ -45,14 +45,14 @@ public class orderMenu {
 	
 	System.out.println("-------- 음료 선택 화면입니다 --------");
 	
-	int americano = 200;
-	int latte = 300;
-	int dutchCoffee = 300;
-	int caffeMocha = 300;
-	int mojito = 500;
-	int orange = 500;
-	int mango = 500;
-	int strawberry = 500;
+	int priceAmericano = 1000;
+	int priceLatte = 1500;
+	int priceDutchCoffee = 2000;
+	int priceCaffeMocha = 2000;
+	int priceMojito = 2500;
+	int priceOrange = 2500;
+	int priceMango = 2500;
+	int priceStrawberry = 2500;
 	
 	
 	// 온도, 사이즈, 샷을 불러오는 동작 실행!!
