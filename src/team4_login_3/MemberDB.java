@@ -20,14 +20,14 @@ public class MemberDB {
 
 
 	
-	public void insertMember() {
+	public void insertMember(ArrayList<MemberDTO> register_DB) {	
+		// 받은 회원 정보 (Arraylist) 
 
 		/* 회원 정보를 파일로 저장하기 위한 출력 */
 		
 		Register register = new Register();
 //		register.regi
-		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
-		System.out.println("데이터 output");
+//		ArrayList<MemberDTO> outputMembers = register_DB;
 
 //		outputMembers.add(memberinfo);
 		ObjectOutputStream objOut = null;
@@ -45,9 +45,9 @@ public class MemberDB {
 						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt")));
 			}
 
-			for (int i = 0; i < outputMembers.size(); i++) {
+			for (int i = 0; i < register_DB.size(); i++) {
 
-				objOut.writeObject(outputMembers.get(i));
+				objOut.writeObject(register_DB.get(i));
 			}
 
 		} catch (FileNotFoundException e) {

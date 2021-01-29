@@ -10,9 +10,12 @@ public class Register {
 	/* 회원가입 */
 	public void register_member() {
 		
+		MemberDB mDB = new MemberDB();	// 멤버를 담을 클래스 선언
+
+		
 //		IO io = new IO();
 		MemberDTO memberDTO = new MemberDTO();
-		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
+		ArrayList<MemberDTO> outputMembers = new ArrayList<>();	// 회원정보를 담을 arraylist 생성
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("아이디를 입력하세요 : ");	// 아이디 입력
@@ -62,7 +65,8 @@ public class Register {
 		
 		
 		outputMembers.add(new MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email));	// 비밀번호 일치시 회원가입 정보를 배열로 저장
-		
+		// 받은 회원정보를 arraylist에 담기
+		mDB.insertMember(outputMembers);	// 담은 회원 정보를 멤버DB의 inserMember메소드로 보냄
 		
 	}
 

@@ -12,7 +12,7 @@ public class Login {
 		ArrayList<MemberDTO> al = new ArrayList<>();
 		MemberDB io = new MemberDB();
 		/* 회원정보 출력! */
-		io.insertMember();
+		io.checkMethod();
 		
 		
 		Scanner sc = new Scanner(System.in);
