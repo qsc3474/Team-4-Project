@@ -1,0 +1,208 @@
+package GUI_App;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import java.io.*;
+
+import team4_login_3.MemberDB;
+import team4_login_3.MemberDTO;
+
+public class MainPage extends JPanel{
+	private MainFrame mf;
+	private JPanel mainPage;
+
+	public MainPage() {
+
+	}
+	public MainPage(MainFrame mf) {
+
+		this.mf = mf;
+		this.mainPage = this;
+		JPanel panel1 = new JPanel();
+		panel1.setBackground(new Color(255, 255, 255));
+		panel1.setForeground(new Color(255, 255, 255));
+		panel1.setBounds(0, 0, 434, 562);
+		panel1.getRootPane().add(panel1);
+		panel1.setVisible(true);
+		panel1.setLayout(null);
+
+
+		panel1.setBounds(0, 0, 434, 40);
+		panel1.add(this);
+		panel1.setBackground(new Color(0, 0, 128));
+		panel1.setForeground(new Color(0, 0, 128));
+		panel1.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("pwd 수정");
+		lblNewLabel.setBounds(163, 5, 89, 24);
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 20));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		panel1.add(lblNewLabel);
+
+		JButton goback = new JButton("");
+		//		goback.addActionListener(new ActionListener() {
+		//		public void actionPerformed(ActionEvent e) {
+		//			Mypage mypage = new Mypage();
+		//			
+		//			
+		//			
+		//		}
+		//
+		//		
+		//	});
+
+		panel1.setSize(450,700);
+		panel1.setBackground(Color.WHITE);
+
+		goback.setIcon(new ImageIcon("C:\\Users\\Administrator\\Desktop\\2.PNG"));
+		goback.setBounds(12, 0, 38, 38);
+		panel1.add(goback);
+
+		JLabel pwd1 = new JLabel("기존비밀번호");
+		pwd1.setForeground(new Color(0, 0, 128));
+		pwd1.setFont(new Font("휴먼고딕", Font.PLAIN, 15));
+		pwd1.setBounds(45, 141, 127, 25);
+		panel1.add(pwd1);
+
+		JLabel pwd1_1 = new JLabel("새로운비밀번호");
+		pwd1_1.setForeground(new Color(0, 0, 128));
+		pwd1_1.setFont(new Font("휴먼고딕", Font.PLAIN, 15));
+		pwd1_1.setBounds(45, 224, 127, 25);
+		this.add(pwd1_1);
+
+		JLabel pwd1_2 = new JLabel("새로운비밀번호학인");
+		pwd1_2.setForeground(new Color(0, 0, 128));
+		pwd1_2.setFont(new Font("휴먼고딕", Font.PLAIN, 15));
+		pwd1_2.setBounds(38, 310, 149, 25);
+		this.add(pwd1_2);
+
+		JPasswordField pwdfild1 = new JPasswordField();
+		pwdfild1.setForeground(new Color(0, 0, 128));
+		pwdfild1.setBounds(199, 139, 200, 25);
+		this.add(pwdfild1);
+
+		JPasswordField  pwdfild2 = new JPasswordField();
+		pwdfild2.setForeground(new Color(0, 0, 128));
+		pwdfild2.setBounds(199, 223, 200, 25);
+		this.add(pwdfild2);
+
+		JPasswordField pwdfild3 = new JPasswordField();
+		pwdfild3.setForeground(new Color(0, 0, 128));
+		pwdfild3.setBounds(199, 309, 200, 25);
+		panel1.add(pwdfild3);
+		JButton btnNewButton = new JButton("확인");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//				Mypage mypage = new Mypage();
+				//				mypage.setVisible(true);
+				//				mypage.main(null);
+				//				frame.dispose();
+				//				Scanner sc = new Scanner(System.in);
+				//				Scanner sc = new Scanne
+				MemberDB mDB = new MemberDB();	
+				MemberDTO memberDTO = new MemberDTO();
+				ArrayList<MemberDTO> al = new ArrayList<>();
+
+
+				al = new MemberDB().checkMethod();
+
+				for(int j = 0; j < al.size(); j++) {
+
+					if(al.get(j).getPwd().equals(pwdfild1.getText())) {
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "기존비밀번호가 아닙니다. 다시 입력해주세요.");
+						return;
+					}
+
+					if(pwdfild2.getText().equals(pwdfild3.getText())) {
+
+						JOptionPane.showMessageDialog(null,"비밀번호를 성공적으로 변경되었습니다." );
+						//						JOptionPane.showMessageDialog(null,"회원정보수정으로 돌아갑니다.");
+						al.get(j).setPwd(pwdfild3.getText());
+						mDB.insertMember(al);
+						al = new MemberDB().checkMethod();
+
+						return;
+					}else if(!pwdfild2.getText().equals(pwdfild3.getText())){
+
+						JOptionPane.showMessageDialog(null,"비밀번호의 값이 다릅니다. 다시 입력해주세요.");
+						return;
+					}
+				}
+
+			}
+
+		}); 
+
+
+		try {
+			this.setIcon(ImageIO.read(new File("images/cff.PNG")));
+		} catch (IOException e1) {
+
+			e1.printStackTrace();
+		}
+		btnNewButton.setBackground(new Color(0, 0, 128));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBounds(179, 425, 65, 25);
+		panel1.add(btnNewButton);
+
+
+
+
+
+		panel1.add(panel1);
+
+		this.add(goback);
+		this.add(pwdfild3);
+		this.add(pwdfild2);
+		this.add(pwdfild1);
+
+		this.add(pwd1_2);
+		this.add(pwd1_1);
+		this.add(pwd1);
+
+		this.add(pwd1);
+
+		mf.add(mainPage);
+
+
+
+
+
+
+	}
+
+	private void setIcon(BufferedImage bufferedImage) {
+		// TODO Auto-generated method stub
+
+	}
+
+	//	private class MyMouseAdapter extends MouseAdapter{
+	//		
+	//		@Override
+	//		public void mouseClicked(MouseEvent e) {
+	//			
+	//			changePanel.changePanel(mf, mainPage, mainPage); // new SubPage(mf)
+	//		}
+	//	}
+
+}
