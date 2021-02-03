@@ -1,4 +1,4 @@
-package team4_login_3;
+package withdraw;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -13,18 +13,24 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import team4_io.MemberDTO;
+
 //import com.greedy.section03.filterstream.MyOutputStream;
 //import com.greedy.section03.filterstream.DTO.MemberDTO;
 
 public class MemberDB {
 
 	
-	public void insertMember(ArrayList<MemberDTO> register_DB) {	
+	public void insertMember() {	
 		// 받은 회원 정보 (Arraylist) 
+		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
+		outputMembers.add(new MemberDTO("1", "1", "1"));
+		outputMembers.add(new MemberDTO("2", "2", "2"));
+		outputMembers.add(new MemberDTO("3", "3", "3"));
 
 		/* 회원 정보를 파일로 저장하기 위한 출력 */
 		
-		Register register = new Register();
+//		Register register = new Register();
 //		register.regi
 //		ArrayList<MemberDTO> outputMembers = register_DB;
 
@@ -44,9 +50,9 @@ public class MemberDB {
 						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt")));
 			}
 
-			for (int i = 0; i < register_DB.size(); i++) {
+			for (int i = 0; i < outputMembers.size(); i++) {
 
-				objOut.writeObject(register_DB.get(i));
+				objOut.writeObject(outputMembers.get(i));
 			}
 
 		} catch (FileNotFoundException e) {

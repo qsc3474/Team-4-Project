@@ -1,4 +1,4 @@
-package team4_login_3;
+package insik;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,13 +18,12 @@ import java.util.Scanner;
 
 public class MemberDB {
 
-	
 	public void insertMember(ArrayList<MemberDTO> register_DB) {	
 		// 받은 회원 정보 (Arraylist) 
 
 		/* 회원 정보를 파일로 저장하기 위한 출력 */
 		
-		Register register = new Register();
+//		Register register = new Register();
 //		register.regi
 //		ArrayList<MemberDTO> outputMembers = register_DB;
 
@@ -33,15 +32,15 @@ public class MemberDB {
 
 		try {
 
-			if (new File("src/team4_login_3/memberDB.txt").exists()) {
+			if (new File("src/insik/memberDB.txt").exists()) {
 				/* 기존에 파일이 있을 경우 */
 				objOut = new MyOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt", true)));
+						new BufferedOutputStream(new FileOutputStream("src/insik/memberDB.txt", true)));
 
 			} else {
 				/* 기존에 파일이 없을 경우 */
 				objOut = new ObjectOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt")));
+						new BufferedOutputStream(new FileOutputStream("src/insik/memberDB.txt")));
 			}
 
 			for (int i = 0; i < register_DB.size(); i++) {
@@ -74,11 +73,12 @@ public class MemberDB {
 		ObjectInputStream objIn = null;
 
 		try {
-			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/team4_login_3/memberDB.txt")));
+			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/insik/memberDB.txt")));
 
 			while (true) {
 
 				MemberDTO input = (MemberDTO) objIn.readObject();
+				
 				inputMembers.add(input);
 
 			}
@@ -87,8 +87,8 @@ public class MemberDB {
 		} catch (EOFException e) {
 			for (int j = 0; j < inputMembers.size(); j++) {
 				System.out.println("inputmembers: " + inputMembers.get(j));
-			}
-			System.out.println("파일 읽기 완료");
+			}	// 회원 정보가 입력이 되어 있는지 확인!
+//			System.out.println("파일 읽기 완료");
 		} catch (FileNotFoundException e1) {
 
 			System.out.println("파일 못찾음");
@@ -103,7 +103,6 @@ public class MemberDB {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
 		} finally {
 			if (objIn != null) {
 				try {

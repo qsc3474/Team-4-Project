@@ -63,7 +63,6 @@ public class Register {
 		}
 		
 		
-		
 		outputMembers.add(new MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email));	// 비밀번호 일치시 회원가입 정보를 배열로 저장
 		// 받은 회원정보를 arraylist에 담기
 		mDB.insertMember(outputMembers);	// 담은 회원 정보를 멤버DB의 inserMember메소드로 보냄

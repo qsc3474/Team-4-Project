@@ -30,15 +30,15 @@ public class OutOnly {
 
 		try {
 
-			if (new File("src/team4_io/testID.txt").exists()) {
+			if (new File("src/team4_io/memberDB.txt").exists()) {
 				/* 기존에 파일이 있을 경우 */
 				objOut = new MyOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_io/testID.txt", true)));
+						new BufferedOutputStream(new FileOutputStream("src/team4_io/memberDB.txt", true)));
 
 			} else {
 				/* 기존에 파일이 없을 경우 */
 				objOut = new ObjectOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_io/testID.txt")));
+						new BufferedOutputStream(new FileOutputStream("src/team4_io/memberDB.txt")));
 			}
 
 			for (int i = 0; i < outputMembers.size(); i++) {
@@ -71,7 +71,7 @@ public class OutOnly {
 		ObjectInputStream objIn = null;
 
 		try {
-			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/team4_io/testID.txt")));
+			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/team4_io/memberDB.txt")));
 
 			while (true) {
 
